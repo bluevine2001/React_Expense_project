@@ -1,30 +1,32 @@
-import ExpenseItem from './ExpenseItem';
-import Card from './Card';
-import './Expenses.css';
+import { useState } from "react";
+import AddExpense from "./AddExpense";
+import Card from "./Card";
+import ExpenseItem from "./ExpenseItem";
+import Filter from "./Filtreannee";
+import "./css/Expenses.css";
+import ApiFetching from "./ApiFetching";
 
 function Expenses(props) {
+  const [selectedFilter, setSelectedFilter] = useState();
+
+  const filteredItems = props.items.filter((el) => {
+    if (!selectedFilter) return true;
+    return el.date.getFullYear().toString() === selectedFilter;
+  });
+
   return (
     <Card className="expenses">
-      <ExpenseItem
-        title={props.items[0].title}
-        amount={props.items[0].amount}
-        date={props.items[0].date}
-      />
-      <ExpenseItem
-        title={props.items[1].title}
-        amount={props.items[1].amount}
-        date={props.items[1].date}
-      />
-      <ExpenseItem
-        title={props.items[2].title}
-        amount={props.items[2].amount}
-        date={props.items[2].date}
-      />
-      <ExpenseItem
-        title={props.items[3].title}
-        amount={props.items[3].amount}
-        date={props.items[3].date}
-      />
+      <ApiFetching />
+      <Filter setYear={setSelectedFilter} />
+      <AddExpense func={props.func} />
+      {filteredItems.map((el) => (
+        <ExpenseItem
+          title={el.title}
+          amount={el.amount}
+          date={el.date}
+          key={el.id}
+        />
+      ))}
     </Card>
   );
 }

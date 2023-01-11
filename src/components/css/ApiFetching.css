@@ -1,0 +1,21 @@
+.movieCard {
+  background-color: blueviolet;
+  padding: 5px 12px;
+  margin: 10px 0px;
+  color: #fff;
+}
+.movieCard h1 {
+  text-align: center;
+}
+.fetchbtn button {
+  width: 30%;
+  padding: 7px;
+  border-radius: 7px;
+  border: none;
+  background-color: darkmagenta;
+  color: #fff;
+}
+.fetchbtn {
+  display: flex;
+  justify-content: center;
+}

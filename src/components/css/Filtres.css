@@ -1,0 +1,13 @@
+.filterbyyear {
+  width: 100%;
+  margin: 4px;
+  height: 25px;
+}
+.filterbyyear select {
+  float: right;
+}
+.filterbyyear p {
+  float: left;
+  color: #fff;
+  margin: 0;
+}

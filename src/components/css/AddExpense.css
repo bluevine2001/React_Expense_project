@@ -1,0 +1,32 @@
+input[type="text"],
+input[type="submit"] {
+  width: 100%;
+  padding: 7px;
+  text-align: center;
+  border-radius: 3px;
+  margin: 4px;
+  border: none;
+}
+input[type="text"] {
+  color: #505050;
+}
+input[type="submit"] {
+  background-color: aquamarine;
+}
+
+input[type="submit"]:hover {
+  opacity: 0.5;
+}
+.addexpense {
+  background-color: blueviolet;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+}
+.btnaddexp button {
+  color: #fff;
+  background-color: darkblue;
+  border: none;
+  padding: 13px;
+  border-radius: 6px;
+}
