@@ -6,18 +6,20 @@ import "./css/ApiFetching.css";
 const ApiFetching = () => {
   const [movies, setMovies] = useState("");
 
-  function fetchApiHandler() {
+  async function fetchApiHandler() {
     const url = "https://swapi.dev/api/films/";
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        const moviesTab = data.results.map((movie) => [
-          movie.title,
-          movie.opening_crawl,
-        ]);
-        console.log(moviesTab);
-        setMovies(moviesTab);
-      });
+    const resp = await fetch(url);
+    //.then((response) => response.json())
+    const data = await resp.json();
+    console.log(data);
+    //.then((data) => {
+    const moviesTab = data.results.map((movie) => [
+      movie.title,
+      movie.opening_crawl,
+    ]);
+    console.log(moviesTab);
+    setMovies(moviesTab);
+    // });
   }
 
   return (
